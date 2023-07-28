@@ -25,25 +25,25 @@ def gallery_view(request):
     Gallery View page
     :return:
     """
-    return
+    return render(request, "pybo/gallery_view.html")
 
 def list_view(request):
     """
     List View page
     :return:
     """
-    return
+    return render(request, "pybo/list_view.html")
 
 def genre_view(request):
     """
     Genre View page
     :return:
     """
-    return
+    return render(request, "pybo/genre_view.html")
 
 def add_movie_view(request):
     """
     Add Movie View page
     :return:
     """
-    return
+    return render(request, "pybo/add_movie_view.html")

@@ -1,10 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'add_movie_page.css' %}">
+    <section class="Add_Movie">
+        <div class="input_cover">
+            <div class="input_labels">
+                <div>Title</div>
+                <div>Year</div>
+                <div>poster</div>
+                <div>Tags</div>
+            </div>
+            <div class="input_inputs">
+                <label><input class="add_input input_title"></label>
+                <label><input class="add_input input_year" type="number" value="2023"></label>
+                <label class="input_image_label"><input class="add_input input_image" type="file"></label>
+                <div class="input_tags">
+                    <div class="tags_selected_cover">
+                        <div class="tags_selected">
+                        </div>
+                    </div>
+                    <div class="tags_preview_cover">
+                        <div class="tags_preview">
+                            <div class="preview_tag_cover">
+                                <div class="preview_tag">Action</div>
+                                <div class="preview_tag_delete">
+                                    <div class="delete"></div>
+                                </div>
+                            </div>
+                            <div class="add_tag">
+                                <div class="plus_cover"><div class="plus"></div></div>
+                                <div class="add_tag_cover">
+                                    <label><input class="add_tag_input" type="text"></label>
+                                    <input class="add_tag_submit" type="button" value="Add">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input class="add_input input_submit" type="button" value="Submit">
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -13,3 +13,13 @@ html, body{
     position: absolute;
     background: #181818;
 }
+
+section{
+    width: 100%;
+    height: calc(100% - var(--header-heihgt));
+    margin-top: var(--header-heihgt);
+}
+
+a{
+    color: white;
+}
