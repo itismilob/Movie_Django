@@ -1,0 +1,111 @@
+
+
+section{
+    width: 100%;
+    height: calc(100% - var(--header-heihgt));
+    margin-top: var(--header-heihgt);
+    /*box-shadow: 0 0 10px black;*/
+}
+
+/* Single Page */
+.Single_view{
+    text-align: center;
+}
+.Single_view_movie{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Single_view_background{
+    width: 80%;
+    height: calc(100% - 70px);
+    position: absolute;
+    border-radius: 0;
+    object-fit: cover;
+}
+.Single_view_background_blur{
+    width: 80%;
+    height: calc(100% - var(--header-heihgt));
+    position: absolute;
+    backdrop-filter: blur(20px);
+    border-radius: 0;
+}
+.Single_view_inner{
+    position: absolute;
+}
+.Single_view_inner > .img_cover{
+    width: 80%;
+    height: 80%;
+    margin-top: 30px;
+}
+.Single_view_img{
+    width: 500px;
+    height: 700px;
+    object-fit: cover;
+
+    box-shadow: 0 0 10px black;
+}
+.Single_view_inner > .title{
+    margin: 0;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 32px;
+}
+.info{
+    height: 40px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+.info > .year{
+    text-align: right;
+    font-size: 20px;
+    font-weight: normal;
+    color: #383838;
+}
+.info > .Genre_tags{
+    margin-left: 10px;
+    text-align: left;
+}
+.info > .Genre_tags > .Genre_tag{
+    margin-left: 5px;
+    padding: 0 10px;
+    background: #ffffff30;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+.info > .Genre_tags > .Genre_tag:hover{
+     color: white;
+}
+/* Single Page */
+
+/* Gallery Page */
+.Gallery_view{
+}
+.Gallery_view_img{
+    width: 45%;
+    height: 40%;
+    margin-top: 100px;
+    object-fit: cover;
+
+    box-shadow: 0 0 10px black;
+}
+/* Gallery Page */
+
+
+
+/* List Page */
+.List_view{
+}
+/* List Page */
+
+
+
+/* Genre Page */
+.Genre_view{
+}
+/* Genre Page */
+
+

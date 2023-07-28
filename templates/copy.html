@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+    <link href="styles/main.css" rel="stylesheet" type="text/css">
+    <link href="styles/add_movie_page.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <header>
+        <span class="head_content left">
+            <span class="header_link">Single</span>
+            <span class="header_link">Gallery</span>
+            <span class="header_link">List</span>
+            <span class="header_link">Genre</span>
+            <span class="header_link">Add Movie</span>
+        </span>
+        <span class="head_content middle">
+            <span>Movie Site</span>
+        </span>
+        <span class="head_content right">
+            <label>
+                <input placeholder="Search">
+            </label>
+        </span>
+    </header>
+
+    <section class="Single_view">
+        <div class="Single_view_movie">
+            <img class="Single_view_background" src="posters/Dune_2021.jpg" alt="Poster_background">
+            <div class="Single_view_background_blur"></div>
+            <div class="Single_view_inner">
+                <img class="Single_view_img" src="posters/Dune_2021.jpg" alt="poster">
+                <h1 class="title">Dune</h1>
+                <div class="info">
+                    <h2 class="year">2021</h2>
+                    <div class="Genre_tags">
+                        <a class="Genre_tag" href="posters/Dune_2021.jpg">Action</a>
+                        <a class="Genre_tag" href="posters/Dune_2021.jpg">Adventure</a>
+                        <a class="Genre_tag" href="posters/Dune_2021.jpg">Drama</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="Single_view_movie">
+            <img class="Single_view_background" src="posters/Home_Alone_1990.webp" alt="Poster_background">
+            <div class="Single_view_background_blur"></div>
+            <div class="Single_view_inner">
+                <img class="Single_view_img" src="posters/Home_Alone_1990.webp" alt="poster">
+                <h1 class="title">Home Alone</h1>
+                <div class="info">
+                    <h2 class="year">2021</h2>
+                    <div class="Genre_tags">
+                        <a class="Genre_tag" href="posters/Home_Alone_1990.webp">Action</a>
+                        <a class="Genre_tag" href="posters/Home_Alone_1990.webp">Adventure</a>
+                        <a class="Genre_tag" href="posters/Home_Alone_1990.webp">Drama</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Single_view_movie">
+            <img class="Single_view_background" src="posters/Spiderman_Into_The_Spider-Verse_2018.jpg" alt="Poster_background">
+            <div class="Single_view_background_blur"></div>
+            <div class="Single_view_inner">
+                <img class="Single_view_img" src="posters/Spiderman_Into_The_Spider-Verse_2018.jpg" alt="poster">
+                <h1 class="title">Spider-man : Into The Spider-verse</h1>
+                <div class="info">
+                    <h2 class="year">2021</h2>
+                    <div class="Genre_tags">
+                        <a class="Genre_tag" href="posters/Spiderman_Into_The_Spider-Verse_2018.jpg">Action</a>
+                        <a class="Genre_tag" href="posters/Spiderman_Into_The_Spider-Verse_2018.jpg">Adventure</a>
+                        <a class="Genre_tag" href="posters/Spiderman_Into_The_Spider-Verse_2018.jpg">Drama</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Single_view_movie">
+            <img class="Single_view_background" src="posters/Inception_2010.jpg" alt="Poster_background">
+            <div class="Single_view_background_blur"></div>
+            <div class="Single_view_inner">
+                <img class="Single_view_img" src="posters/Inception_2010.jpg" alt="poster">
+                <h1 class="title">Inception</h1>
+                <div class="info">
+                    <h2 class="year">2021</h2>
+                    <div class="Genre_tags">
+                        <a class="Genre_tag" href="posters/Inception_2010.jpg">Action</a>
+                        <a class="Genre_tag" href="posters/Inception_2010.jpg">Adventure</a>
+                        <a class="Genre_tag" href="posters/Inception_2010.jpg">Drama</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="Gallery_view">
+        <img class="Gallery_view_img" src="posters/Dune_2021.jpg" alt="poster">
+        <img class="Gallery_view_img" src="posters/Home_Alone_1990.webp" alt="poster">
+        <img class="Gallery_view_img" src="posters/Inception_2010.jpg" alt="poster">
+        <img class="Gallery_view_img" src="posters/Spiderman_Into_The_Spider-Verse_2018.jpg" alt="poster">
+    </section>
+
+    <section class="List_view">
+        <div>
+            1.
+            2.
+            3.
+            4.
+        </div>
+    </section>
+
+    <section class="Genre_view">
+    </section>
+
+    <section class="Add_Movie">
+        <div class="input_cover">
+            <div class="input_labels">
+                <div>Title</div>
+                <div>Year</div>
+                <div>poster</div>
+                <div>Tags</div>
+            </div>
+            <div class="input_inputs">
+                <label><input class="add_input input_title"></label>
+                <label><input class="add_input input_year" type="number" value="2023"></label>
+                <label class="input_image_label"><input class="add_input input_image" type="file"></label>
+                <div class="input_tags">
+                    <div class="tags_selected_cover">
+                        <div class="tags_selected">
+                        </div>
+                    </div>
+                    <div class="tags_preview_cover">
+                        <div class="tags_preview">
+                            <div class="preview_tag_cover">
+                                <div class="preview_tag">Action</div>
+                                <div class="preview_tag_delete">
+                                    <div class="delete"></div>
+                                </div>
+                            </div>
+                            <div class="add_tag">
+                                <div class="plus_cover"><div class="plus"></div></div>
+                                <div class="add_tag_cover">
+                                    <label><input class="add_tag_input" type="text"></label>
+                                    <input class="add_tag_submit" type="button" value="Add">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input class="add_input input_submit" type="button" value="Submit">
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="./test.js"></script>
+<!--    <script src="./scripts/main.js"></script>-->
+<!--    <script src="./scripts/add_movie_page.js"></script>-->
+</body>
+</html>
