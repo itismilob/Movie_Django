@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'add_movie_page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/add_movie_page.css' %}">
     <section class="Add_Movie">
         <div class="input_cover">
             <div class="input_labels">
@@ -10,10 +10,12 @@
                 <div>poster</div>
                 <div>Tags</div>
             </div>
-            <div class="input_inputs">
-                <label><input class="add_input input_title"></label>
-                <label><input class="add_input input_year" type="number" value="2023"></label>
-                <label class="input_image_label"><input class="add_input input_image" type="file"></label>
+            {#      add movie form      #}
+            <form class="input_inputs" action="{% url 'pybo:add_movie_submit' %}" method="post">
+                {% csrf_token %}
+                <input class="add_input input_title" name="title">
+                <input class="add_input input_year" name="year" type="number" value="2023">
+                <input class="add_input input_image" name="poster" type="file">
                 <div class="input_tags">
                     <div class="tags_selected_cover">
                         <div class="tags_selected">
@@ -37,8 +39,10 @@
                         </div>
                     </div>
                 </div>
-                <input class="add_input input_submit" type="button" value="Submit">
-            </div>
+                <input name="tags" type="hidden">
+                <input class="add_input input_submit" type="submit" value="Submit">
+            </form>
         </div>
     </section>
+    <script src="{% static 'script/add_movie_page.js' %}"></script>
 {% endblock %}

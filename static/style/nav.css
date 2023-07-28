@@ -21,7 +21,7 @@ nav{
     text-align: center;
     cursor: pointer;
 }
-.head_content.left > span:hover{
+.head_content.left > span > a:hover{
     color : gray;
 }
 .head_content.middle{

@@ -18,8 +18,10 @@ section{
     width: 100%;
     height: calc(100% - var(--header-heihgt));
     margin-top: var(--header-heihgt);
+    /*box-shadow: 0 0 10px black;*/
 }
 
 a{
+    text-decoration: none;
     color: white;
 }

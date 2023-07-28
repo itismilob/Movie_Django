@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Movie_info
 
 # Create your views here.
@@ -46,4 +46,21 @@ def add_movie_view(request):
     Add Movie View page
     :return:
     """
+    return render(request, "pybo/add_movie_view.html")
+
+def add_movie(request):
+    """
+    Add Movie to db
+    :param request:
+    :return:
+    """
+    movie = Movie_info(title=request.POST.get('title'),
+                       year=request.POST.get('year'),
+                       poster=request.POST.get('poster'),
+                       tags=request.POST.get('tags'))
+    print(request.POST.get('title'),
+          request.POST.get('year'),
+          request.POST.get('poster'),
+          request.POST.get('tags'))
+    movie.save()
     return render(request, "pybo/add_movie_view.html")
