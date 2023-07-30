@@ -9,16 +9,34 @@ def index(request):
     :param request:
     :return:
     """
-    movie_info = Movie_info.objects.order_by('-id')
-    context = {'context': movie_info}
-    return render(request, "base.html", context)
+    return render(request, "base.html")
 
 def single_view(request):
     """
     Single View page
     :return:
     """
-    return render(request, "pybo/single_view.html")
+    movie_info = Movie_info.objects.order_by('id')
+    this_tags = []
+    for i in movie_info:
+        text = ""
+        text_arr = []
+        for t in i.tags:
+            if t == ',':
+
+                text_arr.append(text)
+                text = ""
+            else:
+                text += t
+        text_arr.append(text)
+        this_tags.append(text_arr)
+
+    print("!!! ", this_tags)
+
+    moviessss = zip(movie_info, this_tags)
+
+    context = {'movie_info': moviessss}
+    return render(request, "pybo/single_view.html", context)
 
 def gallery_view(request):
     """
@@ -54,13 +72,21 @@ def add_movie(request):
     :param request:
     :return:
     """
-    movie = Movie_info(title=request.POST.get('title'),
-                       year=request.POST.get('year'),
-                       poster=request.POST.get('poster'),
-                       tags=request.POST.get('tags'))
-    print(request.POST.get('title'),
-          request.POST.get('year'),
-          request.POST.get('poster'),
-          request.POST.get('tags'))
-    movie.save()
+    this_title = request.POST.get('title')
+    this_year = request.POST.get('year')
+    this_poster = request.POST.get('poster')
+    this_tags = request.POST.get('tags')
+
+    movie = Movie_info(title=this_title, year=this_year, poster=this_poster, tags=this_tags)
+    check_registered = Movie_info.objects.filter(title=this_title)
+
+    print("!!! Input: ", this_title, this_year, this_poster, this_tags)
+    print("!!! check: ", check_registered.count())
+
+    if not check_registered.count():
+        print("!!! add completed")
+        movie.save()
+    else:
+        print("!!! this movie already registered")
+
     return render(request, "pybo/add_movie_view.html")
