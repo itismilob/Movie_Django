@@ -9,6 +9,6 @@ urlpatterns = [
     path('gallery/', views.gallery_view),
     path('list/', views.list_view),
     path('genre/', views.genre_view),
-    path('add_movie/', views.add_movie_view),
-    path('add_movie/submit', views.add_movie, name='add_movie_submit')
+    path('add_movie/', views.add_movie_view, name='add_movie'),
+    path('add_movie/submit', views.add_movie_submit, name='add_movie_submit'),
 ]

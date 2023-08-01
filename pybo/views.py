@@ -1,8 +1,25 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Movie_info
+from .models import Movie_info, Movie_tags
+from .forms import add_movie_Form
 
-# Create your views here.
+
+# functions
+def to_list(obj):
+    this_list = []
+    value = ''
+    for i in obj:
+        if i == ',':
+            this_list.append(value)
+            value = ''
+        else:
+            value += i
+    this_list.append(value)
+
+    return this_list
+
+
+# views
 def index(request):
     """
     main page
@@ -10,6 +27,7 @@ def index(request):
     :return:
     """
     return render(request, "base.html")
+
 
 def single_view(request):
     """
@@ -19,24 +37,13 @@ def single_view(request):
     movie_info = Movie_info.objects.order_by('id')
     this_tags = []
     for i in movie_info:
-        text = ""
-        text_arr = []
-        for t in i.tags:
-            if t == ',':
-
-                text_arr.append(text)
-                text = ""
-            else:
-                text += t
-        text_arr.append(text)
-        this_tags.append(text_arr)
+        this_tags.append(to_list(i.tags))
 
     print("!!! ", this_tags)
-
-    moviessss = zip(movie_info, this_tags)
-
-    context = {'movie_info': moviessss}
+    cont = zip(movie_info, this_tags)
+    context = {'movie_info': cont}
     return render(request, "pybo/single_view.html", context)
+
 
 def gallery_view(request):
     """
@@ -45,12 +52,14 @@ def gallery_view(request):
     """
     return render(request, "pybo/gallery_view.html")
 
+
 def list_view(request):
     """
     List View page
     :return:
     """
     return render(request, "pybo/list_view.html")
+
 
 def genre_view(request):
     """
@@ -59,34 +68,52 @@ def genre_view(request):
     """
     return render(request, "pybo/genre_view.html")
 
+
+# @csrf_exempt
 def add_movie_view(request):
     """
     Add Movie View page
-    :return:
+    :return: add_movie_view
     """
-    return render(request, "pybo/add_movie_view.html")
+    movie_tags = Movie_tags.objects.order_by('tag')
+    context = {'movie_tags': movie_tags}
+    return render(request, "pybo/add_movie_view.html", context=context)
 
-def add_movie(request):
+
+def add_movie_submit(request):
     """
-    Add Movie to db
+    Add Movie to DB
     :param request:
-    :return:
+    :return: add_movie_view
     """
-    this_title = request.POST.get('title')
-    this_year = request.POST.get('year')
-    this_poster = request.POST.get('poster')
-    this_tags = request.POST.get('tags')
 
-    movie = Movie_info(title=this_title, year=this_year, poster=this_poster, tags=this_tags)
-    check_registered = Movie_info.objects.filter(title=this_title)
+    # this_title = request.POST.get('title')
+    # this_year = request.POST.get('year')
+    # this_poster = request.POST.get('poster')
+    # this_tags = request.POST.get('tags')
+    #
+    # check_duplicate = Movie_info.objects.filter(title=this_title)
+    #
+    # print("!!! Input: ", this_title, this_year, this_poster, this_tags)
+    # print("!!! Check Duplicate: ", check_duplicate.count())
+    # if not check_duplicate.count():
+    #     print("!!! add completed")
+    # else:
+    #     print("!!! this movie already registered")
 
-    print("!!! Input: ", this_title, this_year, this_poster, this_tags)
-    print("!!! check: ", check_registered.count())
-
-    if not check_registered.count():
-        print("!!! add completed")
-        movie.save()
+    if request.method == 'POST':
+        form = add_movie_Form(request.POST, request.FILES)
+        post = request.POST
+        file = request.FILES
+        print("!!! ", post, file)
+        if form.is_valid():
+            form.save()
+            return redirect('pybo:add_movie')
     else:
-        print("!!! this movie already registered")
+        form = add_movie_Form()
 
-    return render(request, "pybo/add_movie_view.html")
+    movie_tags = Movie_tags.objects.order_by('tag')
+    context = {'movie_tags': movie_tags, 'form': form}
+
+    return render(request, "pybo/add_movie_view.html", context=context)
+

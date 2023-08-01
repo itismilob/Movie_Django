@@ -21,6 +21,7 @@
     position: absolute;
     backdrop-filter: blur(20px);
     border-radius: 0;
+    background: rgba(0, 0, 0, 0.6);
 }
 .Single_view_inner{
     position: absolute;
@@ -37,36 +38,49 @@
 
     box-shadow: 0 0 10px black;
 }
+.title{
+    width: 80%;
+    position: absolute;
+    /*transform: translate(0, -420px);*/
+    font-size: 50px;
+    color: white;
+    text-shadow: 0 3px 5px #000000, 0 -3px 5px #ffffff;
+    overflow: hidden;
+}
 .Single_view_inner > .title{
-    margin: 0;
-    padding-left: 10px;
+    margin: 10px 0;
+    padding: 0 10px;
     text-align: left;
-    font-size: 32px;
+    font-size: 50px;
+    color: white;
 }
 .info{
+    width: 500px;
     height: 40px;
-    padding-left: 10px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
 }
 .info > .year{
+    padding: 0 10px;
     text-align: right;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: normal;
-    color: #383838;
+    color: rgba(255, 255, 255, 0.73);
 }
 .info > .Genre_tags{
-    margin-left: 10px;
     text-align: left;
 }
 .info > .Genre_tags > .Genre_tag{
     margin-left: 5px;
-    padding: 0 10px;
-    background: #ffffff30;
-    color: black;
+    padding: 3px 10px;
+    border-radius: 30px;
+    border: 1px solid white;
+    color: white;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 20px;
+    cursor: pointer;
 }
 .info > .Genre_tags > .Genre_tag:hover{
-     color: white;
+    background: rgba(255, 255, 255, 0.19);
 }

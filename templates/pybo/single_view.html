@@ -7,12 +7,11 @@
 
         {% for movie,tags in movie_info %}
             <div class="Single_view_movie">
-            ./media/{{ movie.poster }}
             <img class="Single_view_background" src="{{ movie.poster.url }}" alt="Poster_background">
             <div class="Single_view_background_blur"></div>
             <div class="Single_view_inner">
                 <img class="Single_view_img" src="{{ movie.poster.url }}" alt="poster">
-                <h1 class="title">{{ movie.title }}</h1>
+
                 <div class="info">
                     <h2 class="year">{{ movie.year }}</h2>
                     <div class="Genre_tags">
@@ -22,6 +21,7 @@
                     </div>
                 </div>
             </div>
+            <h1 class="title">{{ movie.title }}</h1>
             </div>
         {% endfor %}
 

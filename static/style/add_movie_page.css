@@ -1,11 +1,38 @@
-
+:root{
+    --tag-normal: #e0a216;
+    --tag-preview: #3fd72c;
+    --tag-selected: #d72424;
+}
 
 .Add_Movie{
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+
+.form_error{
+    width: 410px;
+    margin-left: 60px;
+}
+.form_error_cover{
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    background: #f6d5d8;
+    color: #8b2b34;
+    border: 1px solid #f3c0c5;
+}
+.form_error_cover > strong{
+    width: 50px;
+}
+.errorlist{
+    width: fit-content;
+    margin: 0;
+}
+
 .input_cover{
+    width: 500px;
     display: flex;
 }
 .input_labels{
@@ -24,9 +51,7 @@
     color: white;
     font-weight: bold;
 }
-.input_inputs{
-    width: 500px;
-}
+
 .add_input, .input_submit{
     width: 400px;
     height: 40px;
@@ -57,7 +82,7 @@
 }
 .input_tags{
     width: 410px;
-    height: 300px;
+    height: 200px;
     margin-bottom: 10px;
 
     background: #212121;
@@ -91,13 +116,14 @@
     justify-content: center;
 
     border-radius: 5px;
-    background: #ffae00;
+    background: var(--tag-normal);
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
+    white-space: nowrap;
 }
 .selected_tag:hover{
-    background: darkred;
+    background: var(--tag-selected);
 }
 .tags_preview_cover{
     height: calc(100% - 40px);
@@ -117,7 +143,7 @@
 .preview_tag_cover{
     margin-bottom: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     border-radius: 5px;
     background: #252525;
 }
@@ -130,13 +156,13 @@
     justify-content: center;
 
     border-radius: 5px;
-    background: #ffae00;
+    background: var(--tag-normal);
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
 }
 .preview_tag:hover{
-    background: limegreen;
+    background: var(--tag-preview);
 }
 .preview_tag_delete{
     width: 25px;

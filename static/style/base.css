@@ -4,6 +4,7 @@
 
 *{
     border-radius: 10px;
+    font-family: "Arial";
 }
 
 html, body{
@@ -12,6 +13,9 @@ html, body{
     margin: 0;
     position: absolute;
     background: #181818;
+}
+body::-webkit-scrollbar{
+    display: none;
 }
 
 section{

@@ -2,10 +2,14 @@ from django.db import models
 
 # Create your models here.
 class Movie_info(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=50, )
     year = models.IntegerField()
-    poster = models.ImageField()
+    poster = models.ImageField(upload_to='', height_field=None, width_field=None)
     tags = models.TextField()
+
+    # rank - number
+    # movie critic site link (IMDB)
+
     def __str__(self):
         return self.title
 
