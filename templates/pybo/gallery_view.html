@@ -1,5 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style/gallery_view.css' %}">
     <section class="Gallery_view">
+        <div class="Gallery_view_grid">
+        {% for movie,tags in movie_info %}
+            <div class="Gallery_view_movie">
+                <img class="image" src="{{ movie.poster.url }}" alt="Poster">
+                <h1 class="title">{{ movie.title }}</h1>
+                <div class="info">
+                    <h2 class="year">{{ movie.year }}</h2>
+                    <h2 class="rating">★ {{ movie.rating }} / 10</h2>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
     </section>
 {% endblock %}

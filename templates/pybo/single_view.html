@@ -1,17 +1,16 @@
-
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'style/single_view.css' %}">
     <section class="Single_view">
-
-        {% for movie,tags in movie_info %}
-            <div class="Single_view_movie">
+    {% for movie,tags in movie_info %}
+        <div class="Single_view_movie">
             <img class="Single_view_background" src="{{ movie.poster.url }}" alt="Poster_background">
             <div class="Single_view_background_blur"></div>
             <div class="Single_view_inner">
                 <img class="Single_view_img" src="{{ movie.poster.url }}" alt="poster">
 
+                <h1 class="title">{{ movie.title }}</h1>
                 <div class="info">
                     <h2 class="year">{{ movie.year }}</h2>
                     <div class="Genre_tags">
@@ -19,11 +18,11 @@
                         <a class="Genre_tag">{{ tag }}</a>
                         {% endfor %}
                     </div>
+                    <h2 class="rating">&#9733; {{ movie.rating }} / 10</h2>
+                    <a class="IMDB_link" href="{{ movie.link }}" target="_blank">IMDb</a>
                 </div>
             </div>
-            <h1 class="title">{{ movie.title }}</h1>
-            </div>
-        {% endfor %}
-
+        </div>
+    {% endfor %}
     </section>
 {% endblock %}

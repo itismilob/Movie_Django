@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'style/add_movie_page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/add_movie_view.css' %}">
     <section class="Add_Movie">
         <form class="input_form" action="{% url 'pybo:add_movie_submit' %}" method="post" enctype="multipart/form-data" novalidate>
             {% csrf_token %}
@@ -23,13 +23,17 @@
                 <div class="input_labels">
                     <div>Title</div>
                     <div>Year</div>
-                    <div>poster</div>
+                    <div>Poster</div>
+                    <div>Rating</div>
+                    <div>Link</div>
                     <div>Tags</div>
                 </div>
                 <div>
                     <input class="add_input input_title" name="title" value="{{ form.title.value|default_if_none:'' }}">
                     <input class="add_input input_year" name="year" type="number" value="{{ form.year.value|default_if_none:'' }}">
                     <input class="add_input input_image" name="poster" type="file">
+                    <input class="add_input input_rating" name="rating" type="number" max="10" min="1" value="{{ form.rating.value|default_if_none:'' }}">
+                    <input class="add_input input_link" name="link" type="url" value="{{ form.link.value|default_if_none:'' }}">
                     <div class="input_tags">
                         <div class="tags_selected_cover">
                             <div class="tags_selected">
