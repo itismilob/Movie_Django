@@ -11,6 +11,7 @@
     grid-template-rows: 600px fit-content(0) 50px 30px;
 }
 
+
 .poster_cover{
     display: flex;
     align-items: center;
