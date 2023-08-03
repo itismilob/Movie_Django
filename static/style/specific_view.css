@@ -1,0 +1,72 @@
+.Specific_view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.view_cover{
+    width: 40%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 100%;
+    grid-template-rows: 600px fit-content(0) 50px 30px;
+}
+
+.poster_cover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.poster{
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+}
+.title{
+    margin: 10px 0 0 0;
+    font-size: 30px;
+    color: white;
+}
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.year{
+    font-size: 16px;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.73);
+}
+.tags{
+    text-align: left;
+}
+.tag{
+    margin-left: 5px;
+    padding: 3px 10px;
+    border-radius: 30px;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+.tag:hover{
+    background: rgba(255, 255, 255, 0.19);
+}
+.rating{
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.73);
+}
+.link{
+    padding: 5px;
+    border-radius: 5px;
+    background: #f3c318;
+    color: black;
+    font-family: "Arial Black";
+    font-size: 13px;
+}
+
+.edit{
+    color: #3d58ab;
+    font-size: 12px;
+    cursor: pointer;
+}

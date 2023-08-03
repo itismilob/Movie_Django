@@ -5,7 +5,7 @@ nav, nav > *{
 
 nav{
     width: 100%;
-    height: var(--header-heihgt);
+    height: var(--header-height);
     display: flex;
     position: fixed;
     background: #181818;

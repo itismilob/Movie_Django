@@ -109,3 +109,9 @@ def add_movie_submit(request):
 
     return render(request, "pybo/add_movie_view.html", context=context)
 
+def specific(request, movie_id):
+    movie_info = Movie_info.objects.get(id=movie_id)
+    this_tags = to_list(movie_info.tags)
+
+    context = {'movie_info': movie_info, 'tags': this_tags}
+    return render(request, "pybo/specific_view.html", context=context)

@@ -11,4 +11,5 @@ urlpatterns = [
     path('genre/', views.genre_view),
     path('add_movie/', views.add_movie_view, name='add_movie'),
     path('add_movie/submit', views.add_movie_submit, name='add_movie_submit'),
+    path('specific/<int:movie_id>/', views.specific),
 ]

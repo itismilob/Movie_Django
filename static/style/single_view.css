@@ -10,14 +10,14 @@
 }
 .Single_view_background{
     width: 80%;
-    height: calc(100% - 70px);
+    height: calc(100% - var(--header-height));
     position: absolute;
     border-radius: 0;
     object-fit: cover;
 }
 .Single_view_background_blur{
     width: 80%;
-    height: calc(100% - var(--header-heihgt));
+    height: calc(100% - var(--header-height));
     position: absolute;
     backdrop-filter: blur(150px);
     border-radius: 0;
@@ -54,17 +54,17 @@
     align-items: center;
     justify-content: space-between;
 }
-.info > .year{
+.year{
     padding: 0 10px;
     text-align: right;
     font-size: 16px;
     font-weight: normal;
     color: rgba(255, 255, 255, 0.73);
 }
-.info > .Genre_tags{
+.Genre_tags{
     text-align: left;
 }
-.info > .Genre_tags > .Genre_tag{
+.Genre_tag{
     margin-left: 5px;
     padding: 3px 10px;
     border-radius: 30px;
@@ -74,14 +74,14 @@
     font-size: 16px;
     cursor: pointer;
 }
-.info > .Genre_tags > .Genre_tag:hover{
+.Genre_tag:hover{
     background: rgba(255, 255, 255, 0.19);
 }
-.info > .rating{
+.rating{
     font-size: 16px;
     color: rgba(255, 255, 255, 0.73);
 }
-.info > .IMDB_link{
+.IMDB_link{
     padding: 5px;
     border-radius: 5px;
     background: #f3c318;

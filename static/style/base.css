@@ -1,5 +1,5 @@
 :root{
-    --header-heihgt: 50px;
+    --header-height: 50px;
 }
 
 *{
@@ -20,9 +20,8 @@ body::-webkit-scrollbar{
 
 section{
     width: 100%;
-    height: calc(100% - var(--header-heihgt));
-    margin-top: var(--header-heihgt);
-    /*box-shadow: 0 0 10px black;*/
+    height: calc(100% - var(--header-height));
+    margin-top: var(--header-height);
 }
 
 a{
