@@ -9,7 +9,7 @@ function update(){
             preview.src = card_poster[i].src;
             preview.style.width = '500px';
             preview.style.height = '700px';
-            link.href = "/pybo/specific/"+card.id+"/";
+            link.href = "/pybo/specific/"+cards[i].id+"/";
         });
     });
 }
