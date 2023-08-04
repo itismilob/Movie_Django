@@ -3,11 +3,47 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'style/list_view.css' %}">
     <section class="List_view">
+
+        <div class="order">order
+            <option>
+                year
+                title
+                rating
+            </option>
+        </div>
+        {% if movie_info %}
+        {# List view #}
         <div class="List_view_grid">
+            <div class="movie_cards_grid">
 
+                {% for movie, tags in movie_info %}
+                <div class="movie_card" id="{{ movie.id }}">
+                    <img class="card_poster" src="{{ movie.poster.url }}">
+                    <div class="card_data">
+                        <h1 class="title">{{ movie.title }}</h1>
+                        <div class="info">
+                            <h2 class="year">{{ movie.year }}</h2>
+                            <div class="tags">
+                                {% for tag in tags %}
+                                <a class="tag" href="{% url 'pybo:tag' tag %}">{{ tag }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="preview">
+                <a class="link">
+                    <img class="preview_poster">
+                </a>
+            </div>
         </div>
-        <div class="preview">
 
-        </div>
+        {% else %}
+        {# No search result #}
+            <div class="no_results">No results were found for your search.</div>
+        {% endif %}
     </section>
+    <script src="{% static 'script/list_view.js' %}"></script>
 {% endblock %}

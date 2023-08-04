@@ -3,29 +3,28 @@
 <nav>
     <span class="head_content left">
         <span class="header_link">
-            <a href="/pybo/single">Single</a>
+            <a href="{% url 'pybo:single_view' %}">Single</a>
         </span>
         <span class="header_link">
-            <a href="/pybo/gallery">Gallery</a>
+            <a href="{% url 'pybo:gallery_view' %}">Gallery</a>
         </span>
         <span class="header_link">
-            <a href="/pybo/list">List</a>
+            <a href="{% url 'pybo:list_view' %}">List</a>
         </span>
         <span class="header_link">
-            <a href="/pybo/genre">Genre</a>
-        </span>
-        <span class="header_link">
-            <a href="/pybo/add_movie">Add Movie</a>
+            <a href="{% url 'pybo:add_movie_view' %}">Add Movie</a>
         </span>
     </span>
     <span class="head_content middle">
         <span>
-            <a href="/pybo/">Movie Site</a>
+            <a href="{% url 'pybo:index_view' %}">Movie Site</a>
         </span>
     </span>
     <span class="head_content right">
-        <label>
-            <input placeholder="Search">
-        </label>
+        <form method="get" action="{% url 'pybo:index' %}">
+            <input class="search" type="text" name="term" value="{{  kw|default_if_none:'' }}" placeholder="Search">
+            <input class="submit" type="submit" value="Q">
+        </form>
     </span>
+
 </nav>

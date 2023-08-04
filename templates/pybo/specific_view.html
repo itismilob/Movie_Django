@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% include "nav.html" %}
 {% block content %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'style/specific_view.css' %}">
@@ -13,7 +14,7 @@
                 <h2 class="year">{{ movie_info.year }}</h2>
                 <div class="tags">
                 {% for tag in tags %}
-                    <a class="tag">{{ tag }}</a>
+                    <a class="tag" href="{% url 'pybo:tag' tag %}">{{ tag }}</a>
                 {% endfor %}
                 </div>
                 <div class="rating">★ {{ movie_info.rating }} / 10</div>

@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
@@ -16,7 +17,7 @@
                         <h2 class="year">{{ movie.year }}</h2>
                         <div class="Genre_tags">
                             {% for tag in tags %}
-                            <a class="Genre_tag">{{ tag }}</a>
+                            <a class="Genre_tag" href="{% url 'pybo:tag' tag %}">{{ tag }}</a>
                             {% endfor %}
                         </div>
                         <h2 class="rating">&#9733; {{ movie.rating }} / 10</h2>

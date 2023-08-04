@@ -1,5 +1,90 @@
+.List_view{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .List_view_grid{
     width: 80%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+
+
+.movie_cards_grid{
+    padding-right: 20px;
+    border-radius: 0;
+    box-shadow: 5px 0 15px -10px black;
+}
+.movie_card{
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    background: #5d5d5d;
+}
+.card_poster{
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+.card_data{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+.title{
+    margin: 0;
+    font-size: 16px;
+    overflow: hidden;
+    color: white;
+    border-radius: 0;
+}
+.info{
+    display: flex;
+    align-items: center;
+}
+.year{
+    padding: 0 10px 0 0;
+    font-size: 12px;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.73);
+}
+.tags{
+    white-space: nowrap;
+}
+.tag{
+    margin-left: 5px;
+    padding: 3px 10px;
+    border-radius: 30px;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.preview{
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -5px 0 15px -10px black;
+}
+.preview_poster{
+    object-fit: cover;
+}
+
+
+.no_results{
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    background: #f4d3d6;
+    color: #8a2b34;
+    border: 1px solid #8a2b34;
 }

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style/index_view.css' %}">
+    <section class="Index_view">
+
+        <h1>The Movie Site</h1>
+        <h4>- Movies that I have watched -</h4>
+        <form action="{% url 'pybo:index' %}" method="get">
+            {% csrf_token %}
+            <input class="search" type="text" name="term" value="{{  kw|default_if_none:'' }}" placeholder="Search">
+            <input class="submit" type="submit" value="Q">
+        </form>
+        <div class="cover">
+            <div>
+                <a href="{% url 'pybo:single_view' %}"><h2>Single View</h2></a>
+                <a href="{% url 'pybo:gallery_view' %}"><h2>Gallery View</h2></a>
+                <a href="{% url 'pybo:list_view' %}"><h2>List View</h2></a>
+                <div class="divider"></div>
+                <a href="{% url 'pybo:add_movie_view' %}"><h2>Add Movie</h2></a>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}

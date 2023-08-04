@@ -4,7 +4,7 @@
     justify-content: center;
 }
 .view_cover{
-    width: 40%;
+    width: 550px;
     display: grid;
     justify-content: center;
     grid-template-columns: 100%;

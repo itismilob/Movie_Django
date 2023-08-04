@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Movie_info, Movie_tags
 from .forms import add_movie_Form
+from django.db.models import Q
 
 
 # functions
@@ -22,12 +23,35 @@ def to_list(obj):
 # pybo
 def index(request):
     """
-    main page
     :param request:
     :return:
     """
-    return render(request, "base.html")
+    term = request.GET.get('term', '')
+    movie_list = Movie_info.objects.order_by('-title')
+    this_tags = []
 
+    if term:
+        movie_list = movie_list.filter(
+            Q(title__icontains=term)|
+            Q(tags__icontains=term)
+        ).distinct()
+        for movie in movie_list:
+            this_tags.append(to_list(movie.tags))
+
+    else:
+        return render(request, "pybo/list_view.html")
+
+    cont = zip(movie_list, this_tags)
+    context = {'movie_info':cont, 'term':term}
+    return render(request, "pybo/list_view.html", context)
+
+def index_view(request):
+    """
+    main index view
+    :param request:
+    :return:
+    """
+    return render(request, "index_view.html")
 
 def single_view(request):
     """
@@ -64,15 +88,14 @@ def list_view(request):
     List View page
     :return:
     """
-    return render(request, "pybo/list_view.html")
+    movie_info = Movie_info.objects.order_by('title')
+    this_tags = []
+    for i in movie_info:
+        this_tags.append(to_list(i.tags))
 
-
-def genre_view(request):
-    """
-    Genre View page
-    :return:
-    """
-    return render(request, "pybo/genre_view.html")
+    cont = zip(movie_info, this_tags)
+    context = {'movie_info': cont}
+    return render(request, "pybo/list_view.html", context)
 
 
 # @csrf_exempt
@@ -115,3 +138,26 @@ def specific(request, movie_id):
 
     context = {'movie_info': movie_info, 'tags': this_tags}
     return render(request, "pybo/specific_view.html", context=context)
+
+def search(request, text):
+    movie_info = Movie_info.objects.filter(title=text)
+    this_tags = to_list(movie_info.tags)
+
+    context = {'movie_info': movie_info, 'tags': this_tags}
+    return render(request, "pybo/specific_view.html", context=context)
+
+def tag(request, tag_name):
+
+    movie_list = Movie_info.objects.order_by('-title')
+    this_tags = []
+
+    movie_list = movie_list.filter(
+        Q(tags__icontains=tag_name)
+    ).distinct()
+    for movie in movie_list:
+        this_tags.append(to_list(movie.tags))
+
+
+    cont = zip(movie_list, this_tags)
+    context = {'movie_info':cont}
+    return render(request, "pybo/list_view.html", context)
