@@ -132,6 +132,31 @@ def add_movie_submit(request):
 
     return render(request, "pybo/add_movie_view.html", context=context)
 
+def edit_view(request, movie_id):
+
+    movie_info = Movie_info.objects.get(id=movie_id)
+
+    context = {'movie_info': movie_info}
+    return render(request, "pybo/edit_view.html", context=context)
+
+def edit_view_submit(request):
+
+    if request.method == 'POST':
+        form = add_movie_Form(request.POST, request.FILES)
+        post = request.POST
+        file = request.FILES
+        print("!!! ", post, file)
+        if form.is_valid():
+            form.save()
+            return redirect('pybo:add_movie_view')
+    else:
+        form = add_movie_Form()
+
+    movie_tags = Movie_tags.objects.order_by('tag')
+    context = {'movie_tags': movie_tags, 'form': form}
+
+    return render(request, "pybo/specific_view.html", context=context)
+
 def specific(request, movie_id):
     movie_info = Movie_info.objects.get(id=movie_id)
     this_tags = to_list(movie_info.tags)
@@ -169,7 +194,7 @@ def order(request):
     movie_list = []
 
     if(select == 'Title'):
-        movie_list = Movie_info.objects.order_by('-title').filter(id__in=id_list)
+        movie_list = Movie_info.objects.order_by('title').filter(id__in=id_list)
     elif(select == 'Year'):
         movie_list = Movie_info.objects.order_by('-year').filter(id__in=id_list)
     elif(select == 'Rating'):

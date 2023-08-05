@@ -11,7 +11,8 @@ urlpatterns = [
     path('list_view/', views.list_view, name='list_view'),
     path('add_movie_view/', views.add_movie_view, name='add_movie_view'),
     path('add_movie_submit', views.add_movie_submit, name='add_movie_submit'),
+    path('edit_view/<int:movie_id>/', views.edit_view, name='edit_view'),
     path('specific/<int:movie_id>/', views.specific, name='specific'),
     path('tag/<str:tag_name>', views.tag, name='tag'),
-    path('order', views.order, name='order')
+    path('order/', views.order, name='order'),
 ]
