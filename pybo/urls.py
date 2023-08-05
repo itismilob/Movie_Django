@@ -13,4 +13,5 @@ urlpatterns = [
     path('add_movie_submit', views.add_movie_submit, name='add_movie_submit'),
     path('specific/<int:movie_id>/', views.specific, name='specific'),
     path('tag/<str:tag_name>', views.tag, name='tag'),
+    path('order', views.order, name='order')
 ]

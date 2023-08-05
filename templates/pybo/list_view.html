@@ -4,12 +4,26 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style/list_view.css' %}">
     <section class="List_view">
 
-        <div class="order">order
-            <option>
-                year
-                title
-                rating
-            </option>
+        <div class="order">
+            <form class="order_form" action="{% url 'pybo:order' %}" method="get">
+                <label class="order_label">Order</label>
+                <select class="order_select" name="select" >
+                    {% if select == 'Year' %}
+                        <option>Title</option>
+                        <option selected="selected">Year</option>
+                        <option>Rating</option>
+                    {% elif select == 'Rating' %}
+                        <option>Title</option>
+                        <option>Year</option>
+                        <option selected="selected">Rating</option>
+                    {% else %}
+                        <option selected="selected">Title</option>
+                        <option>Year</option>
+                        <option>Rating</option>
+                    {% endif %}
+                </select>
+                <input class="id_input" type="hidden" name="id_list">
+            </form>
         </div>
         {% if movie_info %}
         {# List view #}

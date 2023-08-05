@@ -12,6 +12,22 @@ function update(){
             link.href = "/pybo/specific/"+cards[i].id+"/";
         });
     });
+
+    var order_form = document.querySelector(".order_form");
+    var order_select = document.querySelector(".order_select");
+    var id_input = document.querySelector(".id_input");
+    order_select.addEventListener("change", ()=>{
+
+        var id_list = []
+        cards.forEach((card, i)=>{
+            id_list.push(card.id);
+        });
+        id_list.sort();
+        id_input.value = id_list.toString(',');
+
+        console.log(order_form.value);
+        order_form.submit();
+    });
 }
 
 window.onload = ()=>{

@@ -123,7 +123,7 @@ def add_movie_submit(request):
         print("!!! ", post, file)
         if form.is_valid():
             form.save()
-            return redirect('pybo:add_movie')
+            return redirect('pybo:add_movie_view')
     else:
         form = add_movie_Form()
 
@@ -160,4 +160,25 @@ def tag(request, tag_name):
 
     cont = zip(movie_list, this_tags)
     context = {'movie_info':cont}
+    return render(request, "pybo/list_view.html", context)
+
+def order(request):
+
+    select = request.GET.get('select', '')
+    id_list = request.GET.get('id_list', '').split(',')
+    movie_list = []
+
+    if(select == 'Title'):
+        movie_list = Movie_info.objects.order_by('-title').filter(id__in=id_list)
+    elif(select == 'Year'):
+        movie_list = Movie_info.objects.order_by('-year').filter(id__in=id_list)
+    elif(select == 'Rating'):
+        movie_list = Movie_info.objects.order_by('-rating').filter(id__in=id_list)
+
+    this_tags = []
+    for movie in movie_list:
+        this_tags.append(to_list(movie.tags))
+
+    cont = zip(movie_list, this_tags)
+    context = {'movie_info':cont, 'select':select}
     return render(request, "pybo/list_view.html", context)
