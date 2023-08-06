@@ -1,17 +1,20 @@
-# h1
-###### h6
+# Movie Site
+###### - Movies that I have watched -
 ***
-1. 1
-2. 2
-3. 3
-4. 4
-5. 5
----
++ Main view
++ Single view
++ Gallery view
++ List view
++ Specific view
+
+
++ Add Movie
++ Edit Movie
++ Search
+***
 ```
-    python
-    django
-    html
-    css
-    javascript
-    typescript
+    Django - python
+    html, css, javascript
+    sqlite3
 ```
+***
