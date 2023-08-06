@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Movie_info, Movie_tags
-from .forms import add_movie_Form
+from .forms import add_movie_Form, edit_movie_Form
 from django.db.models import Q
 
 
@@ -118,9 +118,6 @@ def add_movie_submit(request):
 
     if request.method == 'POST':
         form = add_movie_Form(request.POST, request.FILES)
-        post = request.POST
-        file = request.FILES
-        print("!!! ", post, file)
         if form.is_valid():
             form.save()
             return redirect('pybo:add_movie_view')
@@ -132,30 +129,37 @@ def add_movie_submit(request):
 
     return render(request, "pybo/add_movie_view.html", context=context)
 
-def edit_view(request, movie_id):
+def edit_movie_view(request, movie_id):
 
     movie_info = Movie_info.objects.get(id=movie_id)
+    this_tags = to_list(movie_info.tags)
+    movie_tags = Movie_tags.objects.exclude(tag__in=this_tags).order_by('tag')
 
-    context = {'movie_info': movie_info}
-    return render(request, "pybo/edit_view.html", context=context)
+    context = {'movie_info': movie_info, 'this_tags': this_tags, 'movie_tags': movie_tags}
+    return render(request, "pybo/edit_movie_view.html", context=context)
 
-def edit_view_submit(request):
-
+def edit_movie_submit(request, movie_id):
+    movie_info = Movie_info.objects.get(id=movie_id)
     if request.method == 'POST':
-        form = add_movie_Form(request.POST, request.FILES)
-        post = request.POST
-        file = request.FILES
-        print("!!! ", post, file)
+        form = edit_movie_Form(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('pybo:add_movie_view')
-    else:
-        form = add_movie_Form()
+            movie_info.title = form['title'].value()
+            movie_info.year = form['year'].value()
+            movie_info.tags = form['tags'].value()
+            movie_info.rating = form['rating'].value()
+            movie_info.link = form['link'].value()
 
-    movie_tags = Movie_tags.objects.order_by('tag')
-    context = {'movie_tags': movie_tags, 'form': form}
+            print(form['poster'].value())
+            if form['poster'].value():
+                movie_info.poster = form['poster'].value()
 
-    return render(request, "pybo/specific_view.html", context=context)
+            movie_info.save()
+
+        this_tags = movie_info.tags.split(',')
+        context = {'movie_info': movie_info, 'tags': this_tags}
+        return render(request, "pybo/specific_view.html", context=context)
+
+    return render(request, "pybo/single_view.html")
 
 def specific(request, movie_id):
     movie_info = Movie_info.objects.get(id=movie_id)
@@ -206,4 +210,18 @@ def order(request):
 
     cont = zip(movie_list, this_tags)
     context = {'movie_info':cont, 'select':select}
+    return render(request, "pybo/list_view.html", context)
+
+
+def delete_movie(request, movie_id):
+    movie = Movie_info.objects.get(id=movie_id)
+    movie.delete()
+
+    movie_info = Movie_info.objects.order_by('title')
+    this_tags = []
+    for i in movie_info:
+        this_tags.append(to_list(i.tags))
+
+    cont = zip(movie_info, this_tags)
+    context = {'movie_info': cont}
     return render(request, "pybo/list_view.html", context)

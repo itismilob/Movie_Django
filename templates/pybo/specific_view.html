@@ -21,7 +21,10 @@
                 <a class="link" href="{{ movie_info.link }}" target="_blank">IMDb</a>
             </div>
 
-            <a class="edit" href="{% url 'pybo:edit_view' movie_info.id %}">Edit Info</a>
+            <div>
+                <a class="edit" href="{% url 'pybo:edit_movie_view' movie_info.id %}">Edit Info</a>
+                <a class="delete" href="{% url 'pybo:delete_movie' movie_info.id %}">Delete Movie</a>
+            </div>
         </div>
     </section>
 {% endblock %}

@@ -71,3 +71,9 @@
     font-size: 12px;
     cursor: pointer;
 }
+.delete{
+    color: #3d58ab;
+    font-size: 12px;
+    cursor: pointer;
+    float: right;
+}

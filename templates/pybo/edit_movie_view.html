@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'style/edit_view.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/edit_movie_view.css' %}">
     <section class="Edit_view">
 
-        <form class="input_form" action="{% url 'pybo:add_movie_submit' %}" method="post" enctype="multipart/form-data" novalidate>
+        <form class="input_form" action="{% url 'pybo:edit_movie_submit' movie_info.id %}" method="post" enctype="multipart/form-data" novalidate>
             {% csrf_token %}
             {# FORM ERROR #}
             {% if form.errors %}
@@ -38,6 +38,9 @@
                     <div class="input_tags">
                         <div class="tags_selected_cover">
                             <div class="tags_selected">
+                                {% for tag in this_tags %}
+                                    <div class="selected_tag">{{ tag }}</div>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="tags_preview_cover">
@@ -57,5 +60,5 @@
         </form>
 
     </section>
-    <script src="{% static 'script/edit_view.js' %}"></script>
+    <script src="{% static 'script/edit_movie_view.js' %}"></script>
 {% endblock %}
