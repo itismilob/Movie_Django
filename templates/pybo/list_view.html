@@ -3,9 +3,14 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'style/list_view.css' %}">
     <section class="List_view">
+        {% if movie_info is None %}
+        {# No search result #}
+        <div class="no_results">No results were found for your search.</div>
 
+        {% else %}
+        {# List view #}
         <div class="order">
-            <form class="order_form" action="{% url 'pybo:order' %}" method="get">
+            <form class="order_form" action="{% url 'pybo:list_order' %}" method="get">
                 <label class="order_label">Order</label>
                 <select class="order_select" name="select" >
                     {% if select == 'Year' %}
@@ -25,8 +30,7 @@
                 <input class="id_input" type="hidden" name="id_list">
             </form>
         </div>
-        {% if movie_info %}
-        {# List view #}
+
         <div class="List_view_grid">
             <div class="movie_cards_grid">
 
@@ -40,7 +44,7 @@
                             <h2 class="rating">★ {{ movie.rating }} / 10</h2>
                             <div class="tags">
                                 {% for tag in tags %}
-                                <a class="tag" href="{% url 'pybo:tag' tag %}">{{ tag }}</a>
+                                <a class="tag" href="{% url 'pybo:list_tag' tag %}">{{ tag }}</a>
                                 {% endfor %}
                             </div>
                         </div>
@@ -54,10 +58,6 @@
                 </a>
             </div>
         </div>
-
-        {% else %}
-        {# No search result #}
-            <div class="no_results">No results were found for your search.</div>
         {% endif %}
     </section>
     <script src="{% static 'script/list_view.js' %}"></script>

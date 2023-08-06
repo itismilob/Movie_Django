@@ -11,14 +11,18 @@
 
             <h1 class="title">{{ movie_info.title }}</h1>
             <div class="info">
-                <h2 class="year">{{ movie_info.year }}</h2>
-                <div class="tags">
-                {% for tag in tags %}
-                    <a class="tag" href="{% url 'pybo:tag' tag %}">{{ tag }}</a>
-                {% endfor %}
+                <div class="info_left">
+                    <h2 class="year">{{ movie_info.year }}</h2>
+                    <div class="tags">
+                    {% for tag in tags %}
+                        <a class="tag" href="{% url 'pybo:list_tag' tag %}">{{ tag }}</a>
+                    {% endfor %}
+                    </div>
                 </div>
-                <div class="rating">★ {{ movie_info.rating }} / 10</div>
-                <a class="link" href="{{ movie_info.link }}" target="_blank">IMDb</a>
+                <div class="info_right">
+                    <div class="rating">★ {{ movie_info.rating }} / 10</div>
+                    <a class="link" href="{{ movie_info.link }}" target="_blank">IMDb</a>
+                </div>
             </div>
 
             <div>

@@ -1,6 +1,10 @@
 .Gallery_view{
     display: flex;
     justify-content: center;
+    overflow-y: scroll;
+}
+.Gallery_view::-webkit-scrollbar{
+    display: none;
 }
 
 .Gallery_view_grid{
@@ -10,6 +14,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 400px;
     grid-row-gap: 20px;
+
 }
 
 .Gallery_view_movie{
@@ -18,23 +23,30 @@
     padding: 10px;
 }
 .image{
-    /*width: 500px;*/
     height: 300px;
     object-fit: cover;
     object-position: 0 -30px;
 }
 .title{
-    height: fit-content;
+    height: 30px;
     margin: 10px 0 0 10px;
     text-align: left;
     font-size: 24px;
     color: white;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.grid_detail {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .info{
     height: fit-content;
     padding: 0 10px;
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
 }
 .year{

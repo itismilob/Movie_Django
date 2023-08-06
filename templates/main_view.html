@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'style/index_view.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/main_view.css' %}">
     <section class="Index_view">
 
         <h1>The Movie Site</h1>
         <h4>- Movies that I have watched -</h4>
-        <form action="{% url 'pybo:index' %}" method="get">
+        <form action="{% url 'pybo:search' %}" method="get">
             {% csrf_token %}
             <input class="search" type="text" name="term" value="{{  kw|default_if_none:'' }}" placeholder="Search">
             <input class="submit" type="submit" value="Q">

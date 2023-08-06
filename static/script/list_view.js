@@ -17,7 +17,6 @@ function update(){
     var order_select = document.querySelector(".order_select");
     var id_input = document.querySelector(".id_input");
     order_select.addEventListener("change", ()=>{
-
         var id_list = []
         cards.forEach((card, i)=>{
             id_list.push(card.id);

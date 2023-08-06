@@ -5,10 +5,10 @@
     <section class="Gallery_view">
         <div class="Gallery_view_grid">
         {% for movie,tags in movie_info %}
-            <a href="/pybo/specific/{{ movie.id }}/">
+            <a class="grid_detail" href="/pybo/specific/{{ movie.id }}/">
                 <div class="Gallery_view_movie">
                     <img class="image" src="{{ movie.poster.url }}" alt="Poster">
-                    <h1 class="title">{{ movie.title }}</h1>
+                    <div class=""><h1 class="title">{{ movie.title }}</h1></div>
                     <div class="info">
                         <h2 class="year">{{ movie.year }}</h2>
                         <h2 class="rating">★ {{ movie.rating }} / 10</h2>

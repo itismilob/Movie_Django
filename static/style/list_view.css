@@ -59,22 +59,29 @@
 .title{
     margin: 0;
     font-size: 16px;
-    overflow: hidden;
     color: white;
     border-radius: 0;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .info{
+    margin-top: 10px;
     display: flex;
-    align-items: center;
+    align-items: baseline;
 }
 .year{
+    height: 15px;
+    margin: 0;
     padding: 0;
     font-size: 12px;
     font-weight: normal;
     color: rgba(255, 255, 255, 0.73);
 }
 .rating{
-    margin-left: 10px;
+    height: 15px;
+    margin: 0 0 0 10px;
     font-size: 12px;
     font-weight: normal;
     color: rgba(255, 255, 255, 0.73);

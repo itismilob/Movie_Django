@@ -17,11 +17,11 @@
     </span>
     <span class="head_content middle">
         <span>
-            <a href="{% url 'pybo:index_view' %}">Movie Site</a>
+            <a href="{% url 'pybo:main_view' %}">Movie Site</a>
         </span>
     </span>
     <span class="head_content right">
-        <form method="get" action="{% url 'pybo:index' %}">
+        <form method="get" action="{% url 'pybo:search' %}">
             <input class="search" type="text" name="term" value="{{  kw|default_if_none:'' }}" placeholder="Search">
             <input class="submit" type="submit" value="Q">
         </form>

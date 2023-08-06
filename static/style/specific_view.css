@@ -29,8 +29,12 @@
 }
 .info{
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
+}
+.info_left, .info_right{
+    display: flex;
+    align-items: baseline;
 }
 .year{
     font-size: 16px;
@@ -38,10 +42,11 @@
     color: rgba(255, 255, 255, 0.73);
 }
 .tags{
+    margin-left: 10px;
     text-align: left;
 }
 .tag{
-    margin-left: 5px;
+    margin-right: 5px;
     padding: 3px 10px;
     border-radius: 30px;
     border: 1px solid white;
@@ -54,6 +59,7 @@
     background: rgba(255, 255, 255, 0.19);
 }
 .rating{
+    margin-right: 10px;
     font-size: 16px;
     color: rgba(255, 255, 255, 0.73);
 }
