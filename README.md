@@ -5,7 +5,8 @@
 + Single view
 + Gallery view
 + List view
-+ Specific view  
++ Specific view
+######
 + Add Movie
 + Edit Movie
 + Search
