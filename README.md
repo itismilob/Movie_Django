@@ -8,6 +8,15 @@
 + Specific view
 
 
+
+
+
+
+
+
+
+
+
 + Add Movie
 + Edit Movie
 + Search
