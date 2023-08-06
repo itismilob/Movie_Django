@@ -6,7 +6,6 @@
 + Gallery view
 + List view
 + Specific view  
-#
 + Add Movie
 + Edit Movie
 + Search
